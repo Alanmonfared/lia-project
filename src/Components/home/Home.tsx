@@ -5,10 +5,10 @@ import { MobileImage } from "./Home-Styled";
 import Gonzo from "../media/images/imgbin_slot-machine-gonzos-quest-online-casino-online-gambling-png.png";
 import betImg from "../../Components/media/images/imgbin_gold-coin-stock-photography-stock-xchng-png.png";
 import SotImage from "../../Components/media/images/wanted-dead-or-a-wild-slot-logo.webp";
-import TestCard from '../home/Card'
-import DataFetch from '../DataFetch'
+// import TestCard from '../home/Card'
+// import DataFetch from '../DataFetch'
 import useAxios, {Edges} from '../hooks/useAxios'
-import { EditorSettings } from "typescript";
+// import { EditorSettings } from "typescript";
 
 // import Tilt from "react-parallax-tilt";
 
@@ -32,7 +32,16 @@ export default function Home() {
   // if (isError) return <p></p>
      console.log(data);
   return (
-    <>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <>
      
 
       <TextCard>
@@ -87,20 +96,24 @@ export default function Home() {
 
       {/* <h1> {games.data[0].casino}</h1> */}
 
- 
-          {data.games[0].casino.edges.map((edge: Edges, idx: number) =>  {
             
-                
-                <div key={idx}>
-                  <div>{edge.node.slug }</div>
-                  <div>{edge.node.image.icon.src}</div>
-                  <div>{edge.node.url}</div>
+          {data.games[0].casino.edges.map((edge: Edges, idx: number) =>  {
+             
+             return (
+             
+              
+              <div key={idx}>
+                <div>{edge.node.slug }</div>
+                <div>{edge.node.image.icon.src}</div>
+                <div>{edge.node.url}</div>
 
-
-                </div> 
+              </div>
+              
+             
+              ); 
               
 
-
+                
           })} 
 
         {/* <div>
