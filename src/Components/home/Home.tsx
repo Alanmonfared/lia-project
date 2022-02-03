@@ -88,10 +88,10 @@ export default function Home() {
       {/* <h1> {games.data[0].casino}</h1> */}
 
  
-          {games.data[1].live.edges.map((edge: Edges, data: number) =>  {
+          {games.data[0].casino.edges.map((edge: Edges, idx: number) =>  {
             
                 
-                <div key={data}>
+                <div key={idx}>
                   <div>{edge.node.slug }</div>
                   <div>{edge.node.image.icon.src}</div>
                   <div>{edge.node.url}</div>
