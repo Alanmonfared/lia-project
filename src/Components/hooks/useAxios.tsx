@@ -42,7 +42,6 @@ type Node = {
 type Response = {
   status: string;
   games: Data;
-  
 };
 
 export type Edges = {
@@ -55,7 +54,7 @@ const useAxios = () => {
   // const [response, setResponse] = useState<[] | null>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isError, setError] = useState<boolean>(false);
-  const [games, setGames] = useState<Response | null>(null);
+  const [data, setData] = useState<Response | null>(null);
 
   //Den den här funktionen ska anropas en gång när vi laddar komponenten där vi använder den här useEffect
 
@@ -65,7 +64,7 @@ const useAxios = () => {
       .get(" https://www.leovegas.com/api/public-casino/bymarket/se ")
       .then((response) => {
         // console.log(response.data.status);
-        setGames(response.data);
+        setData(response.data);
         setLoading(false);
         setError(false);
       })
@@ -73,14 +72,14 @@ const useAxios = () => {
         console.log(error);
         setLoading(false);
         setError(true);
-        setGames(null);
+        setData(null);
       });
 
     return () => {};
     // Måste man retunera en objekt, är det nödvändigt?
   }, []);
 
-  return { games, isError, isLoading };
+  return { data, isError, isLoading };
   //Returnera , och som const påståenden. Const-påståendet säkerställer att variabeln är skrivskyddad och inte kan tilldelas om.responsesisLoadingisError
 };
 

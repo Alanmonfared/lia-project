@@ -26,11 +26,11 @@ export default function Home() {
   const navigate = useNavigate();
   
   
-  const {games, isError, isLoading  } = useAxios();
-  if(games == null) return null;
+  const {data, isError, isLoading  } = useAxios();
+  if(data == null) return null;
   if (isLoading) return <h2>Loading</h2>
   // if (isError) return <p></p>
-     console.log(games);
+     console.log(data);
   return (
     <>
      
@@ -88,7 +88,7 @@ export default function Home() {
       {/* <h1> {games.data[0].casino}</h1> */}
 
  
-          {games.games[0].casino.edges.map((edge: Edges, idx: number) =>  {
+          {data.games[0].casino.edges.map((edge: Edges, idx: number) =>  {
             
                 
                 <div key={idx}>
