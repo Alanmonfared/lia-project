@@ -41,8 +41,8 @@ type Node = {
 
 type Response = {
   status: string;
-  data: Data;
-  game: Games
+  games: Data;
+  
 };
 
 export type Edges = {

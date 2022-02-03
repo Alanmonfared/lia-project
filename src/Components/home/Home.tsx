@@ -88,7 +88,7 @@ export default function Home() {
       {/* <h1> {games.data[0].casino}</h1> */}
 
  
-          {games.data[0].casino.edges.map((edge: Edges, idx: number) =>  {
+          {games.games[0].casino.edges.map((edge: Edges, idx: number) =>  {
             
                 
                 <div key={idx}>
