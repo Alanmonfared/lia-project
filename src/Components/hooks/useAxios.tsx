@@ -58,13 +58,21 @@ const useAxios = () => {
 
   //Den den här funktionen ska anropas en gång när vi laddar komponenten där vi använder den här useEffect
 
+
+
+//   {  headers: {
+//     "Content-Type": "application/json",
+//     "Accept": "application/json"
+//   }}
+
+
+
   useEffect(() => {
     setLoading(true);
     axios
-      .get(" https://www.leovegas.com/api/public-casino/bymarket/se ")
+      .get("https://www.leovegas.com/api/public-casino/bymarket/se")
       .then((response) => {
-        // console.log(response.data.status);
-        setData(response.data);
+        setData(response.data.data);
         setLoading(false);
         setError(false);
       })

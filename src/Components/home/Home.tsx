@@ -7,49 +7,35 @@ import betImg from "../../Components/media/images/imgbin_gold-coin-stock-photogr
 import SotImage from "../../Components/media/images/wanted-dead-or-a-wild-slot-logo.webp";
 // import TestCard from '../home/Card'
 // import DataFetch from '../DataFetch'
-import useAxios, {Edges} from '../hooks/useAxios'
+import useAxios, { Edges } from "../hooks/useAxios";
 // import { EditorSettings } from "typescript";
 
 // import Tilt from "react-parallax-tilt";
 
-
-
-
-
-
-
-
 // const {change, setChange} = useState()
-
 
 export default function Home() {
   const navigate = useNavigate();
-  
-  
-  const {data, isError, isLoading  } = useAxios();
-  if(data == null) return null;
-  if (isLoading) return <h2>Loading</h2>
-  // if (isError) return <p></p>
-     console.log(data);
-  return (
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   <>
-     
 
+  const { data, isError, isLoading } = useAxios();
+  if (data == null) return null;
+  if (isLoading) return <h2>Loading</h2>;
+  // if (isError) return <p>erro</p>
+  console.log(data);
+  return (
+    <>
       <TextCard>
         <Div>
           <div>
-            <HomeH1>Lorem ipsumanimi perferendis! Quaerat, adipisci placeat illo laboriosam t?</HomeH1>
+            <HomeH1>
+              Lorem ipsumanimi perferendis! Quaerat, adipisci placeat illo
+              laboriosam t?
+            </HomeH1>
             <HomeP>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id assumenda consequatur est aliquid iusto ducimus? Animi ratione dolore repellendus quia nesciunt dolor cum laudantium, aliquid maiores? Nostrum unde.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+              assumenda consequatur est aliquid iusto ducimus? Animi ratione
+              dolore repellendus quia nesciunt dolor cum laudantium, aliquid
+              maiores? Nostrum unde.
             </HomeP>
             <div>
               <TextButton>Spela</TextButton>
@@ -58,7 +44,7 @@ export default function Home() {
         </Div>
         <GonzoImg src={Gonzo} alt="Gonzo" />
       </TextCard>
-     {/* <DataFetch    /> */}
+      {/* <DataFetch    /> */}
       <Mobile>
         <DivMobile>
           <MobileH1>Casino Online hos LeoVegas</MobileH1>
@@ -92,29 +78,18 @@ export default function Home() {
       <div>
         <H1Grid>Populära</H1Grid>
 
-        {/* <p>{games.status}</p> */}
-
-      {/* <h1> {games.data[0].casino}</h1> */}
-
             
-          {data.games[0].casino.edges.map((edge: Edges, idx: number) =>  {
-             
-             return (
-             
-              
-              <div key={idx}>
-                <div>{edge.node.slug }</div>
-                <div>{edge.node.image.icon.src}</div>
-                <div>{edge.node.url}</div>
+            
 
-              </div>
-              
-             
-              ); 
-              
-
-                
-          })} 
+        {data.games[0].casino.edges.map((edge: Edges, idx: number) => {
+          return (
+            <Fragment key={idx}>
+              <div>{edge.node.slug ?? ""}</div>
+              <div>{edge.node.image.icon.src}</div>
+              <div>{edge.node.url}</div>
+            </Fragment>
+          );
+        })}
 
         {/* <div>
               <TestCard title={""} date={22} />
@@ -122,8 +97,8 @@ export default function Home() {
               <TestCard title={""} date={22} />
               <TestCard title={""} date={22} />
         </div> */}
-              
-{/*        
+
+        {/*        
       <CardWrapper>
         <CardImage background={imgUrl} />
         <CardTextWrapper>
@@ -149,9 +124,7 @@ export default function Home() {
           </CardStats>
         </CardStatWrapper>
       </CardWrapper> */}
-    
-     
-     
+
         <GridCard>
           <Grid>
             <Item>
@@ -175,37 +148,25 @@ export default function Home() {
               <h1>Lorem ipsum ?</h1>
             </Item>
             <Item>
-              <img
-                alt=""
-                height="100px"
-              />
+              <img alt="" height="100px" />
               <SlotImgStyled src={SotImage} alt="Slots" />
 
               <h1>Lorem ipsum ?</h1>
             </Item>
             <Item>
-              <img
-                alt=""
-                height="100px"
-              />
+              <img alt="" height="100px" />
               <SlotImgStyled src={SotImage} alt="Slots" />
 
               <h1>Lorem ipsum ?</h1>
             </Item>
             <Item>
-              <img
-                alt=""
-                height="100px"
-              />
+              <img alt="" height="100px" />
               <SlotImgStyled src={SotImage} alt="Slots" />
 
               <h1>Lorem ipsum ?</h1>
             </Item>
             <Item>
-              <img
-                alt=""
-                height="100px"
-              />
+              <img alt="" height="100px" />
               <SlotImgStyled src={SotImage} alt="Slots" />
 
               <h1>Lorem ipsum ?</h1>
@@ -260,20 +221,20 @@ const TextCard = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 25;
-  
+  height: 25%;
+
   font-family: "Source Sans Pro", sans-serif;
   background: rgb(14, 13, 13);
   background-image: linear-gradient(
     100deg,
-    rgba(52, 47, 47, 0.7453483346463585) 30%,
-    rgba(255, 255, 255, 1) 100%
+    rgba(52, 47, 47, 0.7453483346463585) 100%,
+    rgba(255, 255, 255, 1) 45%
   );
   background-blend-mode: overlay;
   background-repeat: no-repeat;
   background-size: 100%;
 
-  @media (orientation: landscape) and (max-width: 1000px) {
+  @media (orientation: landscape) {
     display: flex;
     justify-content: start;
   }
@@ -301,8 +262,6 @@ export const GonzoImg = styled.img`
   margin-top: auto;
   /* margin-bottom: 2rem; */
   width: 40%;
-  
-  
 
   @media (max-width: 1000px) {
     height: auto;
@@ -417,9 +376,9 @@ const Mobile = styled.section`
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
-  padding-top: 3rem;
-  height: 25%;
-  
+  padding-top: 10rem;
+  height: 50%;
+
   width: 100%;
 
   @media (min-width: 764px) and (max-width: 1000px) {
@@ -439,14 +398,11 @@ const Mobile = styled.section`
   }
 `;
 
-
-  const DivMobile = styled.div`
-    background-color: #424242b2;
-    padding: 2rem 2rem 2rem;
-    color: white;
-`
-
-
+const DivMobile = styled.div`
+  background-color: #424242b2;
+  padding: 2rem 2rem 2rem;
+  color: white;
+`;
 
 const Button = styled.button`
   border-radius: 1rem;
