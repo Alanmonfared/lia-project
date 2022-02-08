@@ -1,30 +1,39 @@
 import React from "react";
 import styled from "styled-components";
-// import betVideo from "../../Video/video (2).mp4";
-// import Video, { BetVideo } from "../media/video/Video-Styled";
+import useAxios, { Edges } from "../hooks/useAxios";
+import {Grid, GridCard, Item, GridImage, H1Grid, GridButton} from '../home/GridSectionStyled'
+
+
+
 
 export default function Sport() {
+  const { data, isError, isLoading } = useAxios();
+  if (data == null) return null;
+  if (isLoading) return <h1>Loading</h1>;
+  if (isError) return <p>erro</p>;
+
+  const removeDash = (txt: string) => {
+    return txt.replaceAll("-", " ");
+  };
+
   return (
     <>
-      {/* <Video autoPlay loop muted>
-        <source src={betVideo} type="video/mp4" />
-      </Video> */}
-
-      <TextSport>
-        <SportH1>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus vero
-          ab natus reiciendis, officiis laboriosam a rerum, reprehenderit
-          perferendis saepe aspernatur, iste blanditiis voluptates nostrum
-          fugit! Repudiandae, fugiat. Quae, adipisci.
-        </SportH1>
-
-        <SportP>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo neque
-          delectus ex? Repellendus repellat laborum, voluptates, placeat atque
-          facere dignissimos commodi at tempore laboriosam dicta eaque, et est
-          vel distinctio.
-        </SportP>
-      </TextSport>
+     
+      
+        <Grid>
+          {data?.games[2].jackpots.edges.map((edge: Edges, idx: number) => {
+            return (
+              <GridCard key={idx}>
+                <Item>
+                  <GridImage src={edge.node.image.icon.src} alt="image" />
+                  <H1Grid>{removeDash(edge.node.slug)} </H1Grid>
+                  <GridButton>Spela</GridButton>
+                </Item>
+              </GridCard>
+            );
+          })}
+        </Grid>
+      
     </>
   );
 }

@@ -5,6 +5,7 @@ type Games = {
   casino: Conection;
   live: Conection;
   jackpots: Conection;
+  newest: Conection;
   leojackpot: Conection;
 };
 

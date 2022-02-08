@@ -29,7 +29,7 @@ export const TextCard = styled.div`
 `;
 
 export const Div = styled.div`
-  width: 40%;
+  width: 50%;
   margin-left: 5rem;
 
   @media (min-width: 600px) and (max-width: 1500px) {

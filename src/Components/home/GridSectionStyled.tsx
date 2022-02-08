@@ -2,29 +2,40 @@ import styled from "styled-components";
 
 export const Grid = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-template-rows: 500px 500px;
   background-color: white;
   max-width: 100%;
   background-color: transparent;
   row-gap: 100px;
 
-  @media (min-width: 350px) and (max-width: 1000px) {
+
+  @media (orientation: landscape) and (max-width: 1000px) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-template-rows: 400px 400px;
+
     background-color: white;
     max-width: 100%;
     background-color: transparent;
     row-gap: 100px;
   }
 
-  @media (orientation: landscape) and (max-width: 1000px) {
+
+
+  @media (min-width: 350px) and (max-width: 1700px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 165px 165px;
-    grid-gap: 5px;
+     grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); 
+     grid-template-rows: 400px 400px;
+     grid-gap: 20px;
+
+    background-color: white;
+    max-width: 100%;
+    background-color: transparent;
+    row-gap: 100px;
   }
+
+ 
 `;
 
 export const GridImage = styled.img`
@@ -109,3 +120,17 @@ export const GridButton = styled.button`
     padding: 10px 35px;
   }
 `;
+
+
+export const DivGrid = styled.div `
+
+  width:100%;
+  display:block;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem;
+
+
+`
+
+

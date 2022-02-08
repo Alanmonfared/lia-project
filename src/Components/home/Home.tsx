@@ -9,9 +9,9 @@ import {
   MobileH1,
   Button,
   DivMobile,
-} from "./MobileSection-Styled";
+} from "./MobileSectionStyled";
 import Gonzo from "../media/images/imgbin_slot-machine-gonzos-quest-online-casino-online-gambling-png.png";
-import { BetSection, Bet, BetH1, BetP } from "./BetSection-styled";
+import { BetSection, Bet, BetH1, BetP } from "./BetSectionStyled";
 import {
   Grid,
   H1Grid,
@@ -19,7 +19,8 @@ import {
   Item,
   GridImage,
   GridButton,
-} from "./GridSection-Styled";
+  DivGrid,
+} from "./GridSectionStyled";
 
 import {
   TextCard,
@@ -108,19 +109,30 @@ export default function Home() {
         );
       })} */}
 
-      <Grid>
-        {data.games[0].casino.edges.map((edge: Edges, idx: number) => {
-          return (
-            <GridCard key={idx}>
-              <Item>
-                <GridImage src={edge.node.image.icon.src} alt="image" />
-                <H1Grid>{removeDash(edge.node.slug.slice(0, 11))} </H1Grid>
-                <GridButton>Spela</GridButton>
-              </Item>
-            </GridCard>
-          );
-        })}
-      </Grid>
+      <div>
+        <Grid>
+          <DivGrid>
+            <h1>Senaste</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              maxime nesciunt temporibus molestias accusamus, totam molestiae
+              quam vel neque eveniet facilis quasi distinctio reiciendis nulla
+              impedit ipsam. Aspernatur, harum repellendus.
+            </p>
+          </DivGrid>
+          {data.games[3].newest.edges.map((edge: Edges, idx: number) => {
+            return (
+              <GridCard key={idx}>
+                <Item>
+                  <GridImage src={edge.node.image.icon.src} alt="image" />
+                  <H1Grid>{removeDash(edge.node.slug.slice(0, 11))} </H1Grid>
+                  <GridButton>Spela</GridButton>
+                </Item>
+              </GridCard>
+            );
+          })}
+        </Grid>
+      </div>
 
       {/* <BetVideo autoPlay loop muted >
           <source src={betVideo} type="video/mp4" />
@@ -160,4 +172,3 @@ export default function Home() {
     </>
   );
 }
-

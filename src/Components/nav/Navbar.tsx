@@ -66,7 +66,7 @@ export default function Navbar() {
                   to="/Slots"
                   onClick={handleClick}
                 >
-                  Slots
+                  Live
                 </Link>
               </NavbarExtendLink>
             </NavbarExtend>
@@ -87,12 +87,12 @@ export default function Navbar() {
           </Li>
           <Li>
             <Link style={{ textDecoration: "none", color: "#fff" }} to="/Sport">
-              Sport
+              Jackpots
             </Link>
           </Li>
           <Li>
             <Link style={{ textDecoration: "none", color: "#fff" }} to="/Slots">
-              Slots
+            Live
             </Link>
           </Li>
           {/* <Li><Link style={{ textDecoration: 'none', color: '#fff' }} to="/help">Help</Link></Li> */}
