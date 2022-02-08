@@ -32,14 +32,42 @@ type edges = {
 
 }
 
+
+
+
+// import { createClient } from 'pexels';
+
+
+// const client = createClient('YOUR_API_KEY');
+
+
+
+
+
+
+
+
+
+
+
+// client.photos.show({ id: 2499611 }).then(photo => {...});
+
+
+
+
+
+
+
+
+
 const Fetch = () => {
   const [games, setGames] = useState<any | null>(null);
-
+  
   useEffect(() => {
     axios
-    .get(" https://www.leovegas.com/api/public-casino/bymarket/se ")
+    .get("https://api.pexels.com/videos/videos ")
     .then((response) => {
-      // console.log(response.data.status);
+      console.log(response.data);
       setGames(response.data);
     })
     .catch((error) => {

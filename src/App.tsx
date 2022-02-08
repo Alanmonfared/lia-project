@@ -11,7 +11,7 @@ import Casino from "./Components/casino/Casino";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/nav/Navbar";
 import { ThemeProvider } from "styled-components";
-import DataFetch from './Components/DataFetch'
+import DataFetch from "./Components/DataFetch";
 // import Footer from "./Components/footer/Footer";
 
 const theme = {
@@ -28,17 +28,13 @@ const App: FC = () => {
           <>
             <GlobalStyle />
             <Navbar />
-            
-            
-            
-            
-            
+
             {/* <Footer /> */}
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/Login" >
-                    <Route index element={<Login />}  />
-                    <Route path=":id" element={<Login />} />
+              <Route path="/Login">
+                <Route index element={<Login />} />
+                <Route path=":id" element={<Login />} />
               </Route>
               <Route path="/Help" element={<Help />} />
               <Route path="/Slots" element={<Slots />} />

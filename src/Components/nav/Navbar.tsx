@@ -28,7 +28,7 @@ export default function Navbar() {
                   style={{ textDecoration: "none", color: "#fff" }}
                   to="/login"
                 >
-                  <Iuser>Login</Iuser>
+                  <Iuser>Logga in</Iuser>
                   
                 </Link>
               </NavbarExtendLink>
@@ -39,7 +39,7 @@ export default function Navbar() {
                   to="/"
                   onClick={handleClick}
                 >
-                  Home
+                  Hem
                 </Link>
               </NavbarExtendLink>
               <NavbarExtendLink>
@@ -74,7 +74,7 @@ export default function Navbar() {
 
           <Li>
             <Link style={{ textDecoration: "none", color: "#fff" }} to="/">
-              Home
+              Hem
             </Link>
           </Li>
           <Li>

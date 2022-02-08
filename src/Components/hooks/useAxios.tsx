@@ -58,15 +58,6 @@ const useAxios = () => {
 
   //Den den här funktionen ska anropas en gång när vi laddar komponenten där vi använder den här useEffect
 
-
-
-//   {  headers: {
-//     "Content-Type": "application/json",
-//     "Accept": "application/json"
-//   }}
-
-
-
   useEffect(() => {
     setLoading(true);
     axios
@@ -75,6 +66,8 @@ const useAxios = () => {
         setData(response.data.data);
         setLoading(false);
         setError(false);
+        console.log(response.data.data);
+
       })
       .catch((error) => {
         console.log(error);

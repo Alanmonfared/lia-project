@@ -1,18 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 // import casinoVideo from "../../Video/pexels-pavel-danilyuk-7607440.mp4";
+import Casinos from '../../View/Casino'
 import Video, { BetVideo } from "../styled-Components/Video-Styled";
 // import bgNavbar from '../Styled.Components/Navbar.Styled'
 
 export default function Casino() {
   return (
     <>
-      
-        <div>
+      <div>
 
-        </div>
 
-      <TextSport>
+      <Casinos></Casinos>
+
+
+      </div>
+
+      {/* <TextSport>
         <SportH1>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus vero
           ab natus reiciendis, officiis laboriosam a rerum, reprehenderit
@@ -26,7 +30,7 @@ export default function Casino() {
           facere dignissimos commodi at tempore laboriosam dicta eaque, et est
           vel distinctio.
         </SportP>
-      </TextSport>
+      </TextSport> */}
     </>
   );
 }
