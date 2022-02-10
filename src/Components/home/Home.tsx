@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import Newest from "../../View/Newest";
 import useAxios, { Edges } from "../hooks/useAxios";
 import {
   MobileImage,
@@ -12,15 +13,6 @@ import {
 } from "./MobileSectionStyled";
 import Gonzo from "../media/images/imgbin_slot-machine-gonzos-quest-online-casino-online-gambling-png.png";
 import { BetSection, Bet, BetH1, BetP } from "./BetSectionStyled";
-import {
-  Grid,
-  H1Grid,
-  GridCard,
-  Item,
-  GridImage,
-  GridButton,
-  DivGrid,
-} from "./GridSectionStyled";
 
 import {
   TextCard,
@@ -94,50 +86,9 @@ export default function Home() {
         </div>
       </Mobile>
 
-      {/* {data.games[0].casino.edges.map((edge: Edges, idx: number) => {
-        return (
-          <Fragment key={idx}>
-            <div>{edge.node.slug ?? ""} </div>
-            <img src={edge.node.image.icon.src} alt="image" />
-            <img src={edge.node.image.icon} alt="image" />
-            <img  slug={games.node.slug} alt="" />
-
-            <div>{edge.node.image.icon.src}</div>
-
-            <div>{edge.node.url}</div>
-          </Fragment>
-        );
-      })} */}
-
       <div>
-        <Grid>
-          <DivGrid>
-            <h1>Senaste</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              maxime nesciunt temporibus molestias accusamus, totam molestiae
-              quam vel neque eveniet facilis quasi distinctio reiciendis nulla
-              impedit ipsam. Aspernatur, harum repellendus.
-            </p>
-          </DivGrid>
-          {data.games[3].newest.edges.map((edge: Edges, idx: number) => {
-            return (
-              <GridCard key={idx}>
-                <Item>
-                  <GridImage src={edge.node.image.icon.src} alt="image" />
-                  <H1Grid>{removeDash(edge.node.slug.slice(0, 11))} </H1Grid>
-                  <GridButton>Spela</GridButton>
-                </Item>
-              </GridCard>
-            );
-          })}
-        </Grid>
+        <Newest />
       </div>
-
-      {/* <BetVideo autoPlay loop muted >
-          <source src={betVideo} type="video/mp4" />
-          </BetVideo>
-        */}
 
       <BetSection>
         <Bet>

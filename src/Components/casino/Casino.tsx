@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import useAxios, { Edges } from "../hooks/useAxios";
-// import casinoVideo from "../../Video/pexels-pavel-danilyuk-7607440.mp4";
 import {
   Grid,
   GridCard,
@@ -10,10 +9,6 @@ import {
   H1Grid,
   GridButton,
 } from "../home/GridSectionStyled";
-
-import Casinos from "../../View/Casino";
-// import Video, { BetVideo } from "../styled-Components/Video-Styled";
-// import bgNavbar from '../Styled.Components/Navbar.Styled'
 
 export default function Casino() {
   const { data, isError, isLoading } = useAxios();
@@ -27,7 +22,7 @@ export default function Casino() {
 
   return (
     <>
-       <Grid>
+      <Grid>
         {data.games[0].casino.edges.map((edge: Edges, idx: number) => {
           return (
             <GridCard key={idx}>

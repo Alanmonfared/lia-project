@@ -9,7 +9,6 @@ export const Grid = styled.section`
   background-color: transparent;
   row-gap: 100px;
 
-
   @media (orientation: landscape) and (max-width: 1000px) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -21,21 +20,17 @@ export const Grid = styled.section`
     row-gap: 100px;
   }
 
-
-
   @media (min-width: 350px) and (max-width: 1700px) {
     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); 
-     grid-template-rows: 400px 400px;
-     grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-rows: 400px 400px;
+    grid-gap: 20px;
 
     background-color: white;
     max-width: 100%;
     background-color: transparent;
     row-gap: 100px;
   }
-
- 
 `;
 
 export const GridImage = styled.img`
@@ -121,16 +116,10 @@ export const GridButton = styled.button`
   }
 `;
 
-
-export const DivGrid = styled.div `
-
-  width:100%;
-  display:block;
+export const DivGrid = styled.div`
+  width: 100%;
+  display: block;
   justify-content: space-between;
   align-items: center;
   padding: 4rem;
-
-
-`
-
-
+`;

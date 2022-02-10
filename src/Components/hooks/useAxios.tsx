@@ -52,7 +52,6 @@ export type Edges = {
 const useAxios = () => {
   //Min anpassade "axiosHook" kommer att ha 3 state, Response, error och Lodaing.
 
-  // const [response, setResponse] = useState<[] | null>(null);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isError, setError] = useState<boolean>(false);
   const [data, setData] = useState<Response | null>(null);
