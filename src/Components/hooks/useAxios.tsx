@@ -24,7 +24,7 @@ type PageInfo = {
   top: number;
 };
 
-type Node = {
+export type Node = {
   slug: string;
   image: {
     icon: {

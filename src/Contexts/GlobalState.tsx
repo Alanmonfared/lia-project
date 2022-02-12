@@ -1,38 +1,38 @@
-import React, { createContext, useReducer } from "react";
-// const { data, isError, isLoading } = useAxios();
+import React, { createContext, useContext, useReducer } from "react";
+import { Node } from "../Components/hooks/useAxios";
 
+// export const initialValues = {
+//   returnValue: true,
+//   AddFav: () => {},
+//   RemoveFav: () => {},
+// };
 
+// export const AppContext = createContext(initialValues);
 
+export const initState = {
+  favGames: [],
+};  
 
-
-
-export const initialValues = {
-  returnValue: true,
-  AddFav: () => {},
-  RemoveFav: () => {},
+export type ReduceState = { 
+  favGames: Array<Node>;
 };
 
-export const AppContext = createContext(initialValues);
+type Action =
+  | { type: "ADD_FAV"; game: Node }
+  | { type: "REMOVE_FAV"; url: string };
 
-type initState = {
-  returnValue: boolean;
-
-};
-
-type Action = {
-  type: "ADD_FAV" | "REMOVE_FAV";
-};
-
-export function gameReducer(state: initState, action: Action) {
+export function gameReducer(state: ReduceState, action: Action): ReduceState {
   switch (action.type) {
     case "ADD_FAV":
       return {
-        returnValue: true,
+        ...state,
+        favGames: [...state.favGames, action.game],
       };
 
     case "REMOVE_FAV":
       return {
-        returnValue: false, 
+        ...state,
+        favGames: state.favGames.filter((game) => game.url !== action.url),
       };
 
     default:
@@ -40,22 +40,31 @@ export function gameReducer(state: initState, action: Action) {
   }
 }
 
-  const AppProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(gameReducer, initialValues);
+// console.log('', state)
+const ContextState = createContext<ReduceState>(initState);
 
-  return (
-    <AppContext.Provider
-      value={{
-        returnValue: state.returnValue,
-       
-        AddFav: () => dispatch({ type: "ADD_FAV" }),
-        RemoveFav: () => dispatch({ type: "REMOVE_FAV" }),
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+const Dispatcher = createContext<(action: Action) => void>(() => {});
+
+export const GlobalStates = (): ReduceState => {
+  return useContext(ContextState);
 };
 
+export const GlobalDispatcher = () => {
+  return useContext(Dispatcher);
+};
 
-export default AppProvider;
+export type ContextProviderProps = {
+  children: React.ReactNode;
+};
+
+export const ContextProviderProps = (props: ContextProviderProps) => {
+  const [state, dispatch] = useReducer(gameReducer, initState);
+
+  return (
+    <ContextState.Provider value={state}>
+      <Dispatcher.Provider value={dispatch}>
+        {props.children}
+      </Dispatcher.Provider>
+    </ContextState.Provider>
+  );
+};

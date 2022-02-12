@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Newest from "../../View/Newest";
 import useAxios, { Edges } from "../hooks/useAxios";
 import {
   MobileImage,
@@ -13,7 +12,7 @@ import {
 } from "./MobileSectionStyled";
 import Gonzo from "../media/images/imgbin_slot-machine-gonzos-quest-online-casino-online-gambling-png.png";
 import { BetSection, Bet, BetH1, BetP } from "./BetSectionStyled";
-
+import Game from "../home/Games";
 import {
   TextCard,
   Div,
@@ -22,6 +21,7 @@ import {
   TextButton,
   GonzoImg,
 } from "./GonzoSection";
+import { Grid, DivGrid } from "../home/GridSectionStyled";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -86,27 +86,26 @@ export default function Home() {
         </div>
       </Mobile>
 
-      <div>
-        <Newest />
-      </div>
+      <Grid>
+        <DivGrid>
+          <h1>Senaste</h1>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
+            ut voluptate voluptatibus! Pariatur, eveniet eum quam quos vitae
+            sequi molestiae. Facere quas perferendis distinctio obcaecati illo
+            quisquam rerum reiciendis eveniet?
+          </p>
+        </DivGrid>
+        {data.games[3].newest.edges.map((edge: Edges, idx: number) => {
+          return <Game key={`${edge.node.url}${idx}`} game={edge.node} />;
+        })}
+      </Grid>
 
       <BetSection>
         <Bet>
-          <BetH1>Betting hos LeoVegas</BetH1>
+          <BetH1>Lorem ipsum dolor sit amet consectetur</BetH1>
           <BetP>
-            Välkommen till LeoVegas sports betting - det bästa sättet att spela
-            odds på online. Spelplanen är redo, poängtavlan väntar på att
-            matchen ska starta, och vi är alltid redo att förse dig med de
-            senaste oddsen. Här hittar du en pålitlig och användarvänlig
-            sportsbook som finns tillgänglig via din mobil, surfplatta eller
-            dator. Hos oss kan du spela på Premier League, Champions League, NHL
-            såväl som de stora svenska ligorna Allsvenskan och SHL. Är du
-            intresserad av E-sport har vi även något för dig, där vi till
-            exempel erbjuder senaste oddsen för matcher inom CS:GO. Hos oss kan
-            du sortera oddsen efter liga, turnering eller de mest populära
-            matcherna, välja live betting eller före matchstart. Du kan även
-            filtrera för att endast kunna se livestreamade event. Hos oss finns
-            ett stort utbud av sportsbetting i toppklass.
+           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente reprehenderit facilis assumenda provident alias veniam officia, hic, animi explicabo enim eaque id numquam quos vitae necessitatibus magnam in magni? Quisquam.
           </BetP>
 
           <div>

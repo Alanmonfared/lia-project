@@ -57,7 +57,7 @@ export default function Navbar() {
                   to="/Sport"
                   onClick={handleClick}
                 >
-                  Sport
+                  Jackpots
                 </Link>
               </NavbarExtendLink>
               <NavbarExtendLink>
@@ -67,6 +67,15 @@ export default function Navbar() {
                   onClick={handleClick}
                 >
                   Live
+                </Link>
+              </NavbarExtendLink>
+              <NavbarExtendLink>
+                <Link
+                  style={{ textDecoration: "none", color: "#fff" }}
+                  to="/favorite"
+                  onClick={handleClick}
+                >
+                  Favorite
                 </Link>
               </NavbarExtendLink>
             </NavbarExtend>
@@ -95,7 +104,11 @@ export default function Navbar() {
             Live
             </Link>
           </Li>
-          {/* <Li><Link style={{ textDecoration: 'none', color: '#fff' }} to="/help">Help</Link></Li> */}
+          <Li>
+            <Link style={{ textDecoration: "none", color: "#fff" }} to="/favorite">
+            Favorite
+            </Link>
+          </Li>
 
           <BurgerButton onClick={handleClick}>
             {" "}

@@ -46,7 +46,7 @@ export type Games = {
     node: Node;
   };
  
-const typesFavorite = () => {
+ const typesFavorite = () => {
     return ( 
 
         <>
