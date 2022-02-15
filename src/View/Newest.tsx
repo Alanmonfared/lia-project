@@ -7,7 +7,7 @@ import {
   GridImage,
   GridButton,
   DivGrid,
-} from "../Components/home/GridSectionStyled";
+} from "../Components/ui-libary/grid/GridSectionStyled";
 
 
 import useAxios, { Edges } from "../Components/hooks/useAxios";

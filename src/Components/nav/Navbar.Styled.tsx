@@ -40,6 +40,7 @@ export const Li = styled.li`
   &:hover {
     border-bottom: 2px solid #c1b0ad;
   }
+ 
 
   @media screen and (max-width: 1100px) {
     display: none;
@@ -49,7 +50,6 @@ export const Li = styled.li`
 export const Image = styled.img`
   margin-top: 1rem;
   margin-right: 20rem;
-
   max-width: 200px;
   max-height: 200px;
 

@@ -1,14 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import useAxios, { Edges } from "../hooks/useAxios";
-import {
-  Grid,
-  GridCard,
-  Item,
-  GridImage,
-  H1Grid,
-  GridButton,
-} from "../home/GridSectionStyled";
+import styled from "styled-components";
+import { Grid, DivGrid } from "../ui-libary/grid/GridSectionStyled";
+import Game from "../../Contexts/Games";
 
 export default function Casino() {
   const { data, isError, isLoading } = useAxios();
@@ -16,25 +10,28 @@ export default function Casino() {
   if (isLoading) return <h1>Loading</h1>;
   if (isError) return <p>erro</p>;
 
-  const removeDash = (txt: string) => {
-    return txt.replaceAll("-", " ");
-  };
-
   return (
     <>
-      <Grid>
-        {data.games[0].casino.edges.map((edge: Edges, idx: number) => {
-          return (
-            <GridCard key={idx}>
-              <Item>
-                <GridImage src={edge.node.image.icon.src} alt="image" />
-                <H1Grid>{removeDash(edge.node.slug.slice(0, 11))} </H1Grid>
-                <GridButton>Spela</GridButton>
-              </Item>
-            </GridCard>
-          );
-        })}
-      </Grid>
+      <Container>
+        <Grid>
+          <DivGrid>
+            <h1>Casino</h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Voluptatem ut voluptate voluptatibus! Pariatur, eveniet eum quam
+              quos vitae sequi molestiae. Facere quas perferendis distinctio
+              obcaecati illo quisquam rerum reiciendis eveniet?
+            </p>
+          </DivGrid>
+          {data.games[0].casino.edges.map((edge: Edges, idx: number) => {
+            return <Game key={`${edge.node.url}${idx}`} game={edge.node} />;
+          })}
+        </Grid>
+      </Container>
     </>
   );
 }
+
+const Container = styled.div`
+  margin-top: 30px;
+`;

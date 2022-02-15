@@ -11,9 +11,9 @@ import { Node } from "../Components/hooks/useAxios";
 
 export const initState = {
   favGames: [],
-};  
+};
 
-export type ReduceState = { 
+export type ReduceState = {
   favGames: Array<Node>;
 };
 
@@ -41,7 +41,7 @@ export function gameReducer(state: ReduceState, action: Action): ReduceState {
 }
 
 // console.log('', state)
-const ContextState = createContext<ReduceState>(initState);
+export const ContextState = createContext<ReduceState>(initState);
 
 const Dispatcher = createContext<(action: Action) => void>(() => {});
 

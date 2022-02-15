@@ -1,42 +1,38 @@
 import React from "react";
-import { createContext, useContext, useReducer } from "react";
-import useAxios from "../../Components/hooks/useAxios";
-import { Node } from "../hooks/useAxios";
-import {
-  initState,
-  ReduceState,
-  ContextProviderProps,
-  GlobalStates,
-} from "../../Contexts/GlobalState";
-// import Game from "../home/Games";
-
-// export type ReduceState = {
-//   favGames: Array<Node>;
-// };
-// export const initState = {
-//   favGames: [],
-// };
+import { Grid, DivGrid } from "../ui-libary/grid/GridSectionStyled";
+import Game from "../../Contexts/Games";
+import { GlobalStates } from "../../Contexts/GlobalState";
+import styled from "styled-components";
 
 export default function Favorite() {
-  // const dispatch = GlobalDispatcher();
-  const state = GlobalStates();
-  // const { favGames } = useContext(ContextState) as typesFavorite;
-  // const ContextState = createContext<ReduceState>(initState);
-  
-  // const { data, isError, isLoading } = useAxios();
-  // const [state, dispatch] = useReducer(gameReducer, initState);
-  
-  // const [state, dispatch] = useReducer(initState);
-  console.log(state,  'funka')
-  
+  // const { favGames } = useContext(ContextState); alternativ
+  const { favGames } = GlobalStates();
   return (
-    <div>
-      <h1>favoriter</h1>
-      {state.favGames.map((node: Node, idx: number) => {
-        <img key={`${node.image.icon.src}${idx}`} alt="" />;
-        <h1> {node.slug} </h1>
-      })}
-      {/* key={`${node.image.icon.src}${idx}`} */}
-    </div>
+    <>
+      <Container>
+        <div>
+          <div>
+            <h1>Mina favoriter</h1>
+          </div>
+        </div>
+      </Container>
+      <Grid>
+        {favGames &&
+          favGames.map((game, idx) => (
+            <DivGrid key={idx}>
+              <Game key={`${game.url}${idx}`} game={game} />
+            </DivGrid>
+          ))}
+      </Grid>
+    </>
   );
 }
+
+// favGames.length > 0 för att checka att en arry inte är tom innan en mappning. alternativ
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+`;

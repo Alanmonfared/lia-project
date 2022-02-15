@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import {
-  // Hamburger,
-  Ul,
-  Image,
-  Li,
-  Nav,
-} from "./Navbar.Styled";
-import { Iuser } from "../styled-Components/Icon.Styled";
-import { Link } from "react-router-dom";
+import { Ul, Image, Li, Nav } from "./Navbar.Styled";
+import { Iuser } from "../../Components/ui-libary/icon/icon-login";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -72,6 +66,15 @@ export default function Navbar() {
               <NavbarExtendLink>
                 <Link
                   style={{ textDecoration: "none", color: "#fff" }}
+                  to="/Leojackpot"
+                  onClick={handleClick}
+                >
+                  Leojackpot
+                </Link>
+              </NavbarExtendLink>
+              <NavbarExtendLink>
+                <Link
+                  style={{ textDecoration: "none", color: "#fff" }}
                   to="/favorite"
                   onClick={handleClick}
                 >
@@ -82,7 +85,7 @@ export default function Navbar() {
           )}
 
           <Li>
-            <Link style={{ textDecoration: "none", color: "#fff" }} to="/">
+            <Link  style={{ textDecoration: "none", color: "#fff" }} to="/">
               Hem
             </Link>
           </Li>
@@ -95,18 +98,32 @@ export default function Navbar() {
             </Link>
           </Li>
           <Li>
-            <Link style={{ textDecoration: "none", color: "#fff" }} to="/Sport">
+            <Link
+              style={{ textDecoration: "none", color: "#fff" }}
+              to="/jackpots"
+            >
               Jackpots
             </Link>
           </Li>
           <Li>
-            <Link style={{ textDecoration: "none", color: "#fff" }} to="/Slots">
-            Live
+            <Link style={{ textDecoration: "none", color: "#fff" }} to="/live">
+              Live
             </Link>
           </Li>
           <Li>
-            <Link style={{ textDecoration: "none", color: "#fff" }} to="/favorite">
-            Favorite
+            <Link
+              style={{ textDecoration: "none", color: "#fff" }}
+              to="/leojackpot"
+            >
+              Leojackpot
+            </Link>
+          </Li>
+          <Li>
+            <Link
+              style={{ textDecoration: "none", color: "#fff" }}
+              to="/favorite"
+            >
+              Favorite
             </Link>
           </Li>
 
@@ -139,6 +156,8 @@ export default function Navbar() {
   );
 }
 
+
+
 const BurgerButton = styled.button`
   width: 40px;
   height: 50px;
@@ -163,7 +182,6 @@ const NavbarExtend = styled.div`
   animation-duration: 2s;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   background-color: #000000e8;
 
@@ -194,7 +212,4 @@ const NavbarExtendLink = styled.li`
     width: 90%;
     height: 10%;
   }
-  
 `;
-
-
