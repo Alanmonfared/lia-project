@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import betImg from "../../Components/media/images/imgbin_gold-coin-stock-photography-stock-xchng-png.png";
 
 export default createGlobalStyle`
 

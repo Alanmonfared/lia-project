@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import { Ul, Image, Li, Nav } from "./Navbar.Styled";
-import { Iuser } from "../../Components/ui-libary/icon/icon-login";
+import User from "../../Components/ui-libary/icon/icon-login";
 import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
@@ -22,8 +22,6 @@ export default function Navbar() {
                   style={{ textDecoration: "none", color: "#fff" }}
                   to="/login"
                 >
-                  <Iuser>Logga in</Iuser>
-                  
                 </Link>
               </NavbarExtendLink>
 
@@ -83,74 +81,79 @@ export default function Navbar() {
               </NavbarExtendLink>
             </NavbarExtend>
           )}
+        
+          <Divi>
+            <Li>
+              <Link style={{ textDecoration: "none", color: "#fff" }} to="/">
+                Hem
+              </Link>
+            </Li>
+            <Li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/Casino"
+              >
+                Casino
+              </Link>
+            </Li>
+            <Li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/jackpots"
+              >
+                Jackpots
+              </Link>
+            </Li>
+            <Li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/live"
+              >
+                Live
+              </Link>
+            </Li>
+            <Li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/leojackpot"
+              >
+                Leojackpot
+              </Link>
+            </Li>
+            <Li>
+              <Link
+                style={{ textDecoration: "none", color: "#fff" }}
+                to="/favorite"
+              >
+                Favorite
+              </Link>
+            </Li>
 
-          <Li>
-            <Link  style={{ textDecoration: "none", color: "#fff" }} to="/">
-              Hem
+            <Li>
+              {" "}
+              <Link style={{ textDecoration: "none" }} to="/login">
+              
+                <User />
+              </Link>
+            </Li>
+          </Divi>
+          <div>
+            <Link style={{ textDecoration: "none" }} to="/">
+              {" "}
+              <Image
+                src="https://www.nät-casino.se/wp-content/uploads/2015/12/leovegas-logo-2-320x300.png"
+                alt="logo"
+              />
             </Link>
-          </Li>
-          <Li>
-            <Link
-              style={{ textDecoration: "none", color: "#fff" }}
-              to="/Casino"
-            >
-              Casino
-            </Link>
-          </Li>
-          <Li>
-            <Link
-              style={{ textDecoration: "none", color: "#fff" }}
-              to="/jackpots"
-            >
-              Jackpots
-            </Link>
-          </Li>
-          <Li>
-            <Link style={{ textDecoration: "none", color: "#fff" }} to="/live">
-              Live
-            </Link>
-          </Li>
-          <Li>
-            <Link
-              style={{ textDecoration: "none", color: "#fff" }}
-              to="/leojackpot"
-            >
-              Leojackpot
-            </Link>
-          </Li>
-          <Li>
-            <Link
-              style={{ textDecoration: "none", color: "#fff" }}
-              to="/favorite"
-            >
-              Favorite
-            </Link>
-          </Li>
-
-          <BurgerButton onClick={handleClick}>
-            {" "}
-            {isOpen ? <>&#10005;</> : <>&#8801;</>}
-          </BurgerButton>
+          </div>
         </Ul>
+       
+        <BurgerButton onClick={handleClick}>
+          {" "}
+          {isOpen ? <>&#10005;</> : <>&#8801;</>}
+        </BurgerButton>
 
-        <div>
-          <Link style={{ textDecoration: "none" }} to="/">
-            {" "}
-            <Image
-              src="https://www.nät-casino.se/wp-content/uploads/2015/12/leovegas-logo-2-320x300.png"
-              alt="logo"
-            />
-          </Link>
-        </div>
-
-        <Ul>
-          <Li>
-            {" "}
-            <Link style={{ textDecoration: "none", color: "#fff" }} to="/login">
-              <Iuser></Iuser>
-            </Link>
-          </Li>
-        </Ul>
+      
       </Nav>
     </>
   );
@@ -158,9 +161,15 @@ export default function Navbar() {
 
 
 
+
+const Divi = styled.div`
+  display: flex;
+  
+`;
+
 const BurgerButton = styled.button`
-  width: 40px;
-  height: 50px;
+  width: 200px;
+  
   border: none;
   background: none;
   font-size: 50px;
@@ -174,7 +183,7 @@ const BurgerButton = styled.button`
 
 const NavbarExtend = styled.div`
   position: absolute;
-  top: 135px;
+  top: 194px;
   left: 0;
   height: calc(100vh - 60px);
   width: 100%;

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import betImg from "../../media/images/imgbin_gold-coin-stock-photography-stock-xchng-png.png";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,7 @@ export default function BetSection() {
   const navigate = useNavigate();
 
   return (
-    
+    <Content>
       <BetSectionDiv>
         <Bet>
           <BetH1>Lorem ipsum dolor sit amet consectetur</BetH1>
@@ -30,18 +29,24 @@ export default function BetSection() {
           </div>
         </Bet>
       </BetSectionDiv>
-    
+    </Content>
   );
 }
 
-export const BetSectionDiv = styled.section`
+export const Content = styled.section`
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 15rem;
+  flex-direction: column;
+  height: 550px;
+  justify-content: center;
+  /* align-items: center; */
+`;
 
+export const BetSectionDiv = styled.div`
+  /* display: flex;
+  justify-content:center;
+  flex-wrap: wrap; */
   width: 80%;
-  height: 25%;
+  /* height: 25%; */
   background-repeat: no-repeat;
   background-image: url(${betImg});
   background-size: 35%;
@@ -63,14 +68,12 @@ export const BetSectionDiv = styled.section`
 `;
 
 export const Bet = styled.div`
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding-left: 5rem;
-  padding-right: 15rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding: 5rem;
+
   margin: auto;
   background-color: #424242b2;
 
@@ -103,6 +106,7 @@ export const BetH1 = styled.h1`
 
   @media (max-width: 960px) {
     width: 100%;
+    line-height: 40px;
   }
 `;
 

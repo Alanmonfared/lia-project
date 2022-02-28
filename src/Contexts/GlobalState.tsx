@@ -53,11 +53,11 @@ export const GlobalDispatcher = () => {
   return useContext(Dispatcher);
 };
 
-export type ContextProviderProps = {
+export type ContextProvider = {
   children: React.ReactNode;
 };
 
-export const ContextProviderProps = (props: ContextProviderProps) => {
+export const ContextProvider = (props: ContextProvider) => {
   const [state, dispatch] = useReducer(gameReducer, initState);
 
   return (

@@ -1,13 +1,36 @@
-import React, { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Button } from "../../ui-libary/button/buttons";
-
-export default function LoginForm() {
+export default function RegisterForm() {
   return (
     <Card>
       <Form>
         {/* onSubmit={} */}
-        <Text>Välkomen!</Text>
+        <TextDiv>
+          <Text>Gå med </Text>
+          <p>Det går snabbt och smidigt.</p>
+        </TextDiv>
+
+        <UserInput
+          type="text"
+          placeholder="Förnamn"
+          // value={email}
+          // onChange={event }
+          required
+        />
+        <UserInput
+          type="text"
+          placeholder="Efternamn"
+          // value={email}
+          // onChange={event }
+          required
+        />
+        <UserInput
+          type="text"
+          placeholder="Mobilnummer"
+          // value={email}
+          // onChange={event }
+          required
+        />
         <UserInput
           type="text"
           placeholder="e-post"
@@ -24,14 +47,13 @@ export default function LoginForm() {
           required
         />
 
-        <Button type="submit">Logga in</Button>
+        <Button type="submit">Gå med</Button>
 
-        <RegisterLink to="/register">Skapa nytt konot</RegisterLink>
+        <RegisterLink to="/login">Redan medlem? ..... Logga in</RegisterLink>
       </Form>
     </Card>
   );
 }
-
 export const Card = styled.div`
   height: 800px;
   width: 100%;
@@ -42,11 +64,11 @@ export const Card = styled.div`
 export const RegisterLink = styled(Link)`
   margin: 1rem;
   text-decoration: none;
-    color: black;
-    font-size: 20px;
+  color: black;
+  font-size: 20px;
   &:hover {
     background: lightgray;
-}
+  }
 `;
 
 export const Form = styled.form`
@@ -61,9 +83,13 @@ export const Form = styled.form`
   box-shadow: 1px 0px 10px 1px lightgray;
 `;
 
+export const TextDiv = styled.span`
+  padding-bottom: 16px;
+`;
+
 export const Text = styled.span`
   color: #444;
-  font-size: 24px;
+  font-size: 34px;
   padding-bottom: 16px;
 `;
 
@@ -83,17 +109,17 @@ export const UserInput = styled.input`
   }
 `;
 
-// export const Button = styled.button`
-//   height: 40px;
-//   text-align: center;
-//   align-items: center;
-//   border-radius: 4px;
-//   font-weight: bold;
-//   font-size: 16px;
-//   border: 0;
-//   color: #fff;
-//   background-color: #00A878;
-//   margin-top: 5px;
-//   margin-bottom: 16px;
-//   cursor: pointer;
-// `;
+export const Button = styled.button`
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  color: #fff;
+  background-color: #00a878;
+  margin-top: 5px;
+  margin-bottom: 16px;
+  cursor: pointer;
+`;

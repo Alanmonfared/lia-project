@@ -142,7 +142,7 @@ export const HomeH1 = styled.h1`
   }
 
   @media (max-width: 600px) {
-    margin-top: 0;
+    margin-top: 2rem;
     font-size: 1.4rem;
     text-align: center;
     line-height: 1.4rem;

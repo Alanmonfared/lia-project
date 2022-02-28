@@ -1,9 +1,11 @@
-import React from "react";
 import styled from "styled-components";
 import { GlobalDispatcher, GlobalStates } from "./GlobalState";
 import { Node } from "../Components/hooks/useAxios";
 import HeartBlack from "../Components/ui-libary/icon/Icon-black-heart";
 import HeartRed from "../Components/ui-libary/icon/Icon-red-heart";
+import { useNavigate } from "react-router-dom";
+
+// import { Button } from "../Components/ui-libary/button/buttons";
 
 export type Props = {
   game: Node;
@@ -13,6 +15,7 @@ export default function Games(props: Props) {
   const dispatch = GlobalDispatcher();
   const state = GlobalStates();
   const { favGames } = state;
+  const navigate = useNavigate();
 
   const removeDash = (txt: string) => {
     return txt.replaceAll("-", " ");
@@ -40,11 +43,22 @@ export default function Games(props: Props) {
     return false;
   };
 
-  console.log(state);
+  const detailsAdded = () => {
+    // const gameDetails = favGames.find((game) => game.slug === props.game.slug);
+
+    // if (gameDetails ) {
+    return navigate(`/game-details/${props.game.slug}`, { state: props.game });
+    // }
+  };
+  // console.log(state);
 
   return (
     <Container>
-      <GridCard>
+      <GridCard
+        onClick={(e) => {
+          detailsAdded();
+        }}
+      >
         <Item>
           <GridImage src={props.game.image.icon.src} alt="image" />
           <H1Grid>{removeDash(props.game.slug.slice(0, 11))} </H1Grid>
@@ -52,14 +66,25 @@ export default function Games(props: Props) {
 
           {added() ? (
             <GridButton
-              onClick={remove}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                remove();
+              }}
               style={{ border: "none", background: "lightred" }}
             >
               <HeartRed />
             </GridButton>
           ) : (
-            <GridButton onClick={add} style={{ border:'none',  background: "transparent" }}>
-              <HeartBlack/>
+            <GridButton
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                add();
+              }}
+              style={{ border: "none", background: "transparent" }}
+            >
+              <HeartBlack />
             </GridButton>
           )}
         </Item>
@@ -91,7 +116,6 @@ export const Container = styled.div`
   }
 `;
 
-
 export const GridImage = styled.img`
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
@@ -104,6 +128,7 @@ export const GridImage = styled.img`
 `;
 
 export const Item = styled.div`
+  position: relative;
   text-align: center;
   padding-bottom: 1rem;
   border-radius: 0.2rem;
@@ -139,7 +164,7 @@ export const GridButton = styled.button`
   border: 2px solid #c1b0ad;
   position: absolute;
   right: 0px;
-  bottom:8px;
+  bottom: 8px;
   text-align: center;
   text-transform: uppercase;
   background: transparent;
